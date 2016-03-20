@@ -16,7 +16,7 @@
 			wp_nav_menu(array(
 				'theme_location' => 'primary',
 				'menu' => __( 'Primary Menu', 'photos' ),
-				'items_wrap' => '<ul class="latte-push-menu">%3$s</ul>'
+				'items_wrap' => '<ul class="photos-push-menu">%3$s</ul>'
 			));
 			?>
 		</nav>

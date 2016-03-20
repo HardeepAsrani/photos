@@ -5,7 +5,7 @@
  * Happy Blogging
 */
 
-include get_stylesheet_directory() . "/inc/customizer/customizer.php";
+include get_template_directory() . "/inc/customizer/customizer.php";
 
 function photos_setup() {
 
@@ -37,7 +37,7 @@ function photos_setup() {
 		// Flex height
 		'flex-height' => true,
 		// Header image
-		'default-image' => get_stylesheet_directory_uri() . '/assets/images/header.jpg',
+		'default-image' => get_template_directory_uri() . '/assets/images/header.jpg',
 		// Header text
 		'header-text' => false,
 	));
@@ -62,17 +62,17 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) {
 
 // Registering and enqueuing scripts/stylesheets to header/footer.
 function photos_scripts() {
-	wp_enqueue_style( 'photos_bootstrap_css', get_stylesheet_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css');
+	wp_enqueue_style( 'photos_bootstrap_css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css');
 	wp_enqueue_style( 'photos_style', get_stylesheet_uri());
 	wp_enqueue_style( 'photos_latto', '//fonts.googleapis.com/css?family=Lato:400,700,400italic');
 	wp_enqueue_style( 'photos_open_sans', '//fonts.googleapis.com/css?family=Open+Sans:400,300,600');
 
 	if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
-	wp_enqueue_script( 'photos_bootstrap_js', get_stylesheet_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ),'',true);
-	wp_enqueue_script( 'photos_masonry', get_stylesheet_directory_uri() . '/assets/js/masonry.pkgd.min.js', array( 'jquery' ),'',true);
-	wp_enqueue_script( 'photos_imagesloaded', get_stylesheet_directory_uri() . '/assets/js/imagesloaded.pkgd.min.js', array( 'jquery' ),'',true);
-	wp_enqueue_script( 'photos_classie', get_stylesheet_directory_uri() . '/assets/js/classie.js', array( 'jquery' ),'',true);
-	wp_enqueue_script( 'photos_scripts', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ),'',true);
+	wp_enqueue_script( 'photos_bootstrap_js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ),'',true);
+	wp_enqueue_script( 'photos_masonry', get_template_directory_uri() . '/assets/js/masonry.pkgd.min.js', array( 'jquery' ),'',true);
+	wp_enqueue_script( 'photos_imagesloaded', get_template_directory_uri() . '/assets/js/imagesloaded.pkgd.min.js', array( 'jquery' ),'',true);
+	wp_enqueue_script( 'photos_classie', get_template_directory_uri() . '/assets/js/classie.js', array( 'jquery' ),'',true);
+	wp_enqueue_script( 'photos_scripts', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ),'',true);
 }
 
 add_action( 'wp_enqueue_scripts', 'photos_scripts' );
