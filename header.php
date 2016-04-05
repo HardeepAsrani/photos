@@ -16,7 +16,7 @@
 			wp_nav_menu(array(
 				'theme_location' => 'primary',
 				'menu' => __( 'Primary Menu', 'photos' ),
-				'items_wrap' => '<ul class="latte-push-menu">%3$s</ul>'
+				'items_wrap' => '<ul class="photos-push-menu">%3$s</ul>'
 			));
 			?>
 		</nav>
@@ -28,7 +28,7 @@
 				<div class="container">
 				<?php $photos_avatar_image = get_theme_mod('photos_avatar_image', get_template_directory_uri().'/assets/images/avatar.jpg' ); ?>
 				<?php if(!empty($photos_avatar_image)) : ?>
-					<img class="avatar" src="<?php echo $photos_avatar_image; ?>" />
+					<img class="avatar" src="<?php echo esc_url($photos_avatar_image); ?>" />
 				<?php endif; ?>
 					<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
 					<p class="site-tagline"><?php bloginfo( 'description' ); ?></p>

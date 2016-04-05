@@ -10,7 +10,15 @@ Photos is a responsive photoblogging theme which allows you to display your imag
 # Copyright, License & Other info #
 License: [GNU General Public License v2.0](http://www.gnu.org/licenses/gpl-2.0.html)
 
-Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License. See License URI in style.css for further details.
+## Libraries ##
+
+Bootstrap, http://getbootstrap.com/
+Copyright © 2011-2015 Twitter, Inc, MIT License, http://www.opensource.org/licenses/MIT
+
+classie.js, https://github.com/desandro/classie
+masonry.pkgd, https://github.com/desandro/masonry
+imagesloaded.pkgd.js, https://github.com/desandro/imagesloaded
+Copyright © 2014, desandro, MIT License, http://www.opensource.org/licenses/MIT
 
 Images used in theis theme falls under Creative Commons 0:
 	Default Image: https://pixabay.com/en/red-cat-pet-animal-cute-cute-cat-1044914/
@@ -19,7 +27,3 @@ Images used in theis theme falls under Creative Commons 0:
 
 # Support #
 Please visit http://wordpress.org/support/ if you have any questions about the theme.
-
-# Update Log #
-= 0.01 =
-- Initial Release.
