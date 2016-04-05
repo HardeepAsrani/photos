@@ -7,22 +7,21 @@
 				<div class="loop-description">
 					<?php echo category_description(); ?>
 				</div>
-		</div>
+			</div>
 		<?php elseif ( is_tag() ) : ?>
-		<div class="loop-meta">
-			<h1 class="loop-title"><?php single_tag_title(); ?></h1>
-			<div class="loop-description">
-				<?php echo tag_description(); ?>
+			<div class="loop-meta">
+				<h1 class="loop-title"><?php single_tag_title(); ?></h1>
+				<div class="loop-description">
+					<?php echo tag_description(); ?>
+				</div>
 			</div>
-		</div>
 		<?php elseif ( is_tax() ) : ?>
-		<div class="loop-meta">
-			<h1 class="loop-title"><?php single_term_title(); ?></h1>
-			<div class="loop-description">
-				<?php echo term_description( '', get_query_var( 'taxonomy' ) ); ?>
-				<?php if ( is_tax( 'portfolio' ) ) get_template_part( 'menu', 'portfolio' ); ?>
+			<div class="loop-meta">
+				<h1 class="loop-title"><?php single_term_title(); ?></h1>
+				<div class="loop-description">
+					<?php echo term_description( '', get_query_var( 'taxonomy' ) ); ?>
+				</div>
 			</div>
-		</div>
 		<?php elseif ( is_author() ) : ?>
 			<?php $user_id = get_query_var( 'author' ); ?>
 			<div id="hcard-<?php echo esc_attr( get_the_author_meta( 'user_nicename', $user_id ) ); ?>" class="loop-meta vcard">
@@ -37,9 +36,8 @@
 				<h1 class="loop-title"><?php post_type_archive_title(); ?></h1>
 				<div class="loop-description">
 					<?php if ( !empty( $post_type->description ) ) echo wpautop( $post_type->description ); ?>
-					<?php if ( is_post_type_archive( 'portfolio_item' ) ) get_template_part( 'menu', 'portfolio' ); ?>
 				</div>
-			</div><!-- .loop-meta -->
+			</div>
 		<?php elseif ( is_day() || is_month() || is_year() ) : ?>
 			<?php
 			if ( is_day() )
