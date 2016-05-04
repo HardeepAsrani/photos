@@ -7,49 +7,50 @@
 
 include get_template_directory() . "/inc/customizer/customizer.php";
 
-function photos_setup() {
+if (!function_exists('photos_setup')) {
+	function photos_setup() {
 
-	global $content_width;
-	if (!isset($content_width)) {
-		$content_width = 750;
+		global $content_width;
+		if (!isset($content_width)) {
+			$content_width = 750;
+		}
+
+		// Takes care of the <title> tag. https://codex.wordpress.org/Title_Tag
+		add_theme_support('title-tag');
+		
+		// Loads texdomain. https://codex.wordpress.org/Function_Reference/load_theme_textdomain
+		load_theme_textdomain('photos', get_template_directory() . '/languages');
+
+		// Add automatic feed links support. https://codex.wordpress.org/Automatic_Feed_Links
+		add_theme_support('automatic-feed-links');
+
+		// Add post thumbnails support. https://codex.wordpress.org/Post_Thumbnails
+		add_theme_support('post-thumbnails');
+
+		// Add custom background support. https://codex.wordpress.org/Custom_Backgrounds
+		add_theme_support('custom-background', array(
+			// Default color
+			'default-color' => 'FFF',
+		));
+
+		// Add custom header support. https://codex.wordpress.org/Custom_Headers
+		add_theme_support('custom-header', array(
+			// Flex height
+			'flex-height' => true,
+			// Header image
+			'default-image' => get_template_directory_uri() . '/assets/images/header.jpg',
+			// Header text
+			'header-text' => false,
+		));
+
+		// This theme uses wp_nav_menu(). https://codex.wordpress.org/Function_Reference/register_nav_menu
+		register_nav_menus( array(
+			'primary' => __( 'Primary Menu', 'photos' ),
+		));
 	}
 
-	// Takes care of the <title> tag. https://codex.wordpress.org/Title_Tag
-	add_theme_support('title-tag');
-	
-	// Loads texdomain. https://codex.wordpress.org/Function_Reference/load_theme_textdomain
-	load_theme_textdomain('photos', get_template_directory() . '/languages');
-
-	// Add automatic feed links support. https://codex.wordpress.org/Automatic_Feed_Links
-	add_theme_support('automatic-feed-links');
-
-	// Add post thumbnails support. https://codex.wordpress.org/Post_Thumbnails
-	add_theme_support('post-thumbnails');
-
-	// Add custom background support. https://codex.wordpress.org/Custom_Backgrounds
-	add_theme_support('custom-background', array(
-		// Default color
-		'default-color' => 'FFF',
-	));
-
-	// Add custom header support. https://codex.wordpress.org/Custom_Headers
-	add_theme_support('custom-header', array(
-		// Flex height
-		'flex-height' => true,
-		// Header image
-		'default-image' => get_template_directory_uri() . '/assets/images/header.jpg',
-		// Header text
-		'header-text' => false,
-	));
-
-	// This theme uses wp_nav_menu(). https://codex.wordpress.org/Function_Reference/register_nav_menu
-	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'photos' ),
-	));
+	add_action( 'after_setup_theme', 'photos_setup' );
 }
-
-add_action( 'after_setup_theme', 'photos_setup' );
-
 // To add backwards compatibility for titles
 if ( ! function_exists( '_wp_render_title_tag' ) ) {
 	function photos_render_title() {
@@ -62,16 +63,16 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) {
 
 // Registering and enqueuing scripts/stylesheets to header/footer.
 function photos_scripts() {
-	wp_enqueue_style( 'photos_bootstrap_css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css');
+	wp_enqueue_style( 'bootstrap_css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css');
 	wp_enqueue_style( 'photos_style', get_stylesheet_uri());
 	wp_enqueue_style( 'photos_latto', '//fonts.googleapis.com/css?family=Lato:400,700,400italic');
 	wp_enqueue_style( 'photos_open_sans', '//fonts.googleapis.com/css?family=Open+Sans:400,300,600');
 
 	if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
-	wp_enqueue_script( 'photos_bootstrap_js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ),'',true);
-	wp_enqueue_script( 'photos_masonry', get_template_directory_uri() . '/assets/js/masonry.pkgd.min.js', array( 'jquery' ),'',true);
-	wp_enqueue_script( 'photos_imagesloaded', get_template_directory_uri() . '/assets/js/imagesloaded.pkgd.min.js', array( 'jquery' ),'',true);
-	wp_enqueue_script( 'photos_classie', get_template_directory_uri() . '/assets/js/classie.js', array( 'jquery' ),'',true);
+	wp_enqueue_script( 'bootstrap_js', get_template_directory_uri() . '/assets/bootstrap/js/bootstrap.min.js', array( 'jquery' ),'',true);
+	wp_enqueue_script( 'masonry', get_template_directory_uri() . '/assets/js/masonry.pkgd.min.js', array( 'jquery' ),'',true);
+	wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/assets/js/imagesloaded.pkgd.min.js', array( 'jquery' ),'',true);
+	wp_enqueue_script( 'classie', get_template_directory_uri() . '/assets/js/classie.js', array( 'jquery' ),'',true);
 	wp_enqueue_script( 'photos_scripts', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ),'',true);
 }
 
