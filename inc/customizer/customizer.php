@@ -7,7 +7,7 @@ function photos_customize_register($wp_customize) {
 
 	class Photos_Support extends WP_Customize_Control {
 		public function render_content() {
-			echo __('If you like this theme and if it helped you with your business then please consider supporting the development <a target="_blank" href="http://www.hardeepasrani.com/donate/">by donating some money</a>. This theme is 100% free and will always be. <a target="_blank" href="http://www.hardeepasrani.com/donate/">Any amount, even $1.00, is appreciated :)</a>','photos');
+			echo __('If you like this theme and if it helped you with your business then please consider supporting the development <a target="_blank" href="http://www.hardeepasrani.com/donate/">by donating some money</a>. This theme is 100% free and will always be. Any amount, even $1.00, is appreciated :)','photos');
 		}
 	}
 
